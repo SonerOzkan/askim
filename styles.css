@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Şık font için */
+
+body {
+    background-color: #f8d7da; /* Toz pembe arka plan */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.ribbon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff7f7f, #ffb6c1);
+    transform: rotate(45deg);
+    opacity: 0.7;
+    z-index: 0;
+}
+.ribbon-1 { top: 10%; left: 5%; }
+.ribbon-2 { top: 50%; left: 90%; }
+.ribbon-3 { top: 80%; left: 20%; }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+    position: relative;
+}
+.main-title {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    margin: 20px 0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+.content-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.photo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    background-color: #e9ecef;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.photo img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+.text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+.spacing {
+    margin: 40px 0; /* Bölümler arasında boşluk için */
+}
+.footer {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Mobil uyum için */
+@media (max-width: 768px) {
+    .content-box {
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.content-box {
+    border: 3px solid #ff7f7f; /* Toz pembe çerçeve */
+    padding: 20px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.content-box {
+    animation: fadeIn 1.2s ease-out;
+}
+.main-title {
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 1px 1px 2px #000; }
+    to { text-shadow: 0 0 15px #ff7f7f, 0 0 30px #ffb6c1; }
+}
+
+.decorative-hearts {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+}
+.heart {
+    width: 20px;
+    height: 20px;
+    background-color: #ffb6c1;
+    border-radius: 50%;
+    position: absolute;
+}
+.static-heart {
+    animation: static-pulse 2s infinite;
+}
+@keyframes static-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+.moving-heart {
+    top: 0;
+    animation: float 3s infinite ease-in-out;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+    .main-title { font-size: 2rem; }
+    .content-box { padding: 10px; }
+    .heart { width: 15px; height: 15px; }
+    #love-button { width: 50px; height: 50px; font-size: 1.2rem; line-height: 50px; }
+}
